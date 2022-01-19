@@ -10,6 +10,7 @@ const oneWay=(str1, str2)=>{
 
 
     while(diff < 2 && leftIndex <= str1.length && rightIndex <= str2.length){
+        console.log(str1[leftIndex],str2[rightIndex])
         if(str1[leftIndex] !== str2[rightIndex]){
             diff++;
             if(str1[leftIndex + 1] === str2[rightIndex]) {
