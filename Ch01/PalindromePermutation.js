@@ -18,30 +18,41 @@ const PalindromePermutation1=(str)=>{
 
 const PalindromePermutation2=(str)=>{
 
-  let i = 0;
-  let t = str.length - 1;
+  // let i = 0;
+  // let t = str.length - 1;
+  //
+  // str = str.toLowerCase()
+  //
+  // while (i <= t){
+  //
+  //   let getLeft = str[i];
+  //   let getRight = str[t];
+  //
+  //   if(!(getLeft >= 'a' && getLeft <= 'z')){
+  //     i++;
+  //   }else if(!(getRight >= 'a' && getRight <= 'z')){
+  //     t--;
+  //   }else if(getLeft === getRight){
+  //     i++;
+  //     t--;
+  //   }else {
+  //     return false
+  //   }
+  //
+  // }
+  // return true
 
-  str = str.toLowerCase()
 
-  while (i <= t){
-
-    let getLeft = str[i];
-    let getRight = str[t];
-
-    if(!(getLeft >= 'a' && getLeft <= 'z')){
-      i++;
-    }else if(!(getRight >= 'a' && getRight <= 'z')){
-      t--;
-    }else if(getLeft === getRight){
-      i++;
-      t--;
-    }else {
-      return false
-    }
+  let char_counts = [];
+  for (let i=0; i<str.length;i++){
+    char_counts[str.charAt(i)] = char_counts[str.charAt(i)] ? char_counts[str.charAt(i)] +1 : 1
+  }
+  let count = 0;
+  for (let i=0;i<str.length;i++){
+    count += char_counts[str.charAt(i)] % 2
 
   }
-  return true
-
+  return count <= 1;
 }
 
 // const bt = Date.now()
@@ -53,7 +64,9 @@ const PalindromePermutation2=(str)=>{
 
 const bt2 = Date.now()
 for (let i = 0; i < 1; i++) {
-  PalindromePermutation2("Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot.")
+  // PalindromePermutation2("Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot Too hot to hoot.")
 }
+console.log(PalindromePermutation2("abba"));
+
 const at2 = Date.now()
 console.log((at2 - bt2) / 1000)
